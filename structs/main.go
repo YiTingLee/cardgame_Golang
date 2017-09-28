@@ -5,9 +5,9 @@ import (
 )
 
 type person struct {
-	firstName string
-	lastName  string
-	contact   contactInfo
+	firstName   string
+	lastName    string
+	contactInfo //=== contactInfo contactInfo
 }
 
 type contactInfo struct {
@@ -19,7 +19,7 @@ func main() {
 	eric := person{
 		firstName: "Eric",
 		lastName:  "Lee",
-		contact: contactInfo{
+		contactInfo: contactInfo{
 			email:   "eric@mail.com",
 			zipCode: 200,
 		},
@@ -31,5 +31,15 @@ func main() {
 	// eric.contact.email = "eric@mail.com"
 	// eric.contact.zipCode = 2000
 
-	fmt.Printf("%+v", eric)
+	ericPointer := &eric
+	ericPointer.updateName("Gary")
+	eric.print()
+}
+
+func (pointerToPerson *person) updateName(newFirstName string) {
+	(*pointerToPerson).firstName = newFirstName
+}
+
+func (p person) print() {
+	fmt.Printf("%+v", p)
 }
