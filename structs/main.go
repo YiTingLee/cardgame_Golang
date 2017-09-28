@@ -31,8 +31,9 @@ func main() {
 	// eric.contact.email = "eric@mail.com"
 	// eric.contact.zipCode = 2000
 
-	ericPointer := &eric
-	ericPointer.updateName("Gary")
+	// ericPointer := &eric
+	// ericPointer.updateName("Gary")
+	eric.updateName("Gary")
 	eric.print()
 }
 
